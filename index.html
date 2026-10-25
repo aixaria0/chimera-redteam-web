@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="CHIMERA Red Team — revision-bound adversarial analysis and sealed evidence.">
+  <meta name="theme-color" content="#080b0d">
+  <title>CHIMERA Red Team</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="grid" aria-hidden="true"></div>
+  <header>
+    <a class="brand" href="#top" aria-label="CHIMERA Red Team home"><span class="mark">C</span><span>CHIMERA / RED TEAM</span></a>
+    <nav><a href="#capabilities">Capabilities</a><a href="#command">Command</a><a href="#boundaries">Boundaries</a></nav>
+    <button id="lang" class="ghost" type="button">FA</button>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="eyebrow" data-en="PRIVATE CORE · PUBLIC CONTROL SURFACE" data-fa="هسته خصوصی · رابط عمومی">PRIVATE CORE · PUBLIC CONTROL SURFACE</div>
+      <h1 data-en="Evidence before confidence." data-fa="اول شواهد، بعد اطمینان.">Evidence before confidence.</h1>
+      <p class="lede" data-en="Revision-bound analysis for Rust, JavaScript, TypeScript and Python projects. Every execution stays explicit, local and attributable to exact committed bytes." data-fa="تحلیل وابسته به نسخه برای پروژه‌های راست، جاوااسکریپت، تایپ‌اسکریپت و پایتون. هر اجرا صریح، محلی و متصل به بایت‌های دقیق ثبت‌شده باقی می‌ماند.">Revision-bound analysis for Rust, JavaScript, TypeScript and Python projects. Every execution stays explicit, local and attributable to exact committed bytes.</p>
+      <div class="hero-actions"><a class="primary" href="#command" data-en="Build a command" data-fa="ساخت دستور">Build a command</a><a class="secondary" href="#boundaries" data-en="Read the boundaries" data-fa="مرزها را بخوان">Read the boundaries</a></div>
+      <div class="status"><span class="pulse"></span><span data-en="Public interface · v0.3.0" data-fa="رابط عمومی · نسخه ۰.۳.۰">Public interface · v0.3.0</span></div>
+    </section>
+
+    <section id="capabilities" class="section">
+      <div class="section-head"><span>01</span><h2 data-en="Four native test profiles" data-fa="چهار پروفایل تست بومی">Four native test profiles</h2></div>
+      <div class="cards">
+        <article><code>CARGO</code><h3>Rust</h3><p data-en="Locked, offline Cargo execution against one committed manifest." data-fa="اجرای قفل‌شده و آفلاین کارگو روی یک مانیفست ثبت‌شده.">Locked, offline Cargo execution against one committed manifest.</p></article>
+        <article><code>NODE</code><h3>JS / TS</h3><p data-en="Native Node test execution with explicit suite selection." data-fa="اجرای بومی تست‌های نود با انتخاب صریح مجموعه.">Native Node test execution with explicit suite selection.</p></article>
+        <article><code>UNITTEST</code><h3>Python</h3><p data-en="Standard-library discovery from a bounded source snapshot." data-fa="کشف تست با کتابخانه استاندارد از یک تصویر محدودِ منبع.">Standard-library discovery from a bounded source snapshot.</p></article>
+        <article><code>PYTEST</code><h3>Python</h3><p data-en="Existing pytest environments, without installing dependencies." data-fa="استفاده از محیط موجود پای‌تست، بدون نصب وابستگی.">Existing pytest environments, without installing dependencies.</p></article>
+      </div>
+    </section>
+
+    <section id="command" class="section command-section">
+      <div class="section-head"><span>02</span><h2 data-en="Local command builder" data-fa="سازنده دستور محلی">Local command builder</h2></div>
+      <div class="terminal-card">
+        <div class="form">
+          <label><span data-en="Repository path" data-fa="مسیر مخزن">Repository path</span><input id="path" value="/path/to/project" spellcheck="false"></label>
+          <label><span data-en="Profile" data-fa="پروفایل">Profile</span><select id="profile"><option value="cargo">Cargo / Rust</option><option value="node">Node / JS / TS</option><option value="python-unittest">Python / unittest</option><option value="python-pytest">Python / pytest</option></select></label>
+          <label><span data-en="Git revision" data-fa="نسخه گیت">Git revision</span><input id="ref" value="HEAD" spellcheck="false"></label>
+          <label><span data-en="Timeout (seconds)" data-fa="مهلت اجرا (ثانیه)">Timeout (seconds)</span><input id="timeout" type="number" min="1" max="1800" value="120"></label>
+        </div>
+        <div class="terminal"><div class="dots"><i></i><i></i><i></i></div><pre><code id="output"></code></pre><button id="copy" type="button" data-en="COPY" data-fa="کپی">COPY</button></div>
+        <p class="hint" data-en="Inspect first: remove --execute to produce a plan without running project code." data-fa="اول بررسی کن: با حذف ‎--execute‎ فقط برنامه اجرا ساخته می‌شود و کدی اجرا نمی‌شود.">Inspect first: remove --execute to produce a plan without running project code.</p>
+      </div>
+    </section>
+
+    <section id="boundaries" class="section">
+      <div class="section-head"><span>03</span><h2 data-en="Trust boundaries" data-fa="مرزهای اعتماد">Trust boundaries</h2></div>
+      <div class="boundary">
+        <div><b data-en="Exact source" data-fa="منبع دقیق">Exact source</b><p data-en="Tests run from committed Git objects in a disposable copy." data-fa="تست‌ها از اشیای ثبت‌شده گیت در یک نسخه موقت اجرا می‌شوند.">Tests run from committed Git objects in a disposable copy.</p></div>
+        <div><b data-en="No hidden execution" data-fa="بدون اجرای پنهان">No hidden execution</b><p data-en="Planning is the default. Execution requires an explicit local action." data-fa="حالت پیش‌فرض فقط برنامه‌ریزی است؛ اجرا نیازمند اقدام صریح محلی است.">Planning is the default. Execution requires an explicit local action.</p></div>
+        <div><b data-en="No dependency acquisition" data-fa="بدون دریافت وابستگی">No dependency acquisition</b><p data-en="The runner uses available or vendored dependencies and never installs them." data-fa="اجراگر فقط از وابستگی‌های موجود یا همراه پروژه استفاده می‌کند و چیزی نصب نمی‌کند.">The runner uses available or vendored dependencies and never installs them.</p></div>
+        <div><b data-en="Evidence, not theatre" data-fa="شواهد، نه نمایش">Evidence, not theatre</b><p data-en="Empty, skipped, timed-out and truncated suites are never reported as passes." data-fa="مجموعه‌های خالی، ردشده، منقضی یا ناقص هرگز موفق گزارش نمی‌شوند.">Empty, skipped, timed-out and truncated suites are never reported as passes.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer><span>CHIMERA RED TEAM</span><span data-en="Public surface / private engine" data-fa="رابط عمومی / موتور خصوصی">Public surface / private engine</span></footer>
+  <script src="app.js"></script>
+</body>
+</html>
